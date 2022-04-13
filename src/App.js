@@ -7,36 +7,16 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      name: "Mario",
-      company: "Moser",
+      monsters: [{ name: "Goof", }, { name: "Goty", }, { name: "Gio", }],
     };
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Hi {this.state.name}, I work at {this.state.company}
-          </p>
-          <button
-            //correct way of setting state 
-            onClick={() => {
-              this.setState(
-                () => {
-                  return { name: "Mason", company: "Apple " };
-                },
-                //after state is up to date is when next call back will run
-                () => {
-                  console.log(this.state);
-                }
-              );
-            }}
-          >
-            Change Name
-          </button>
-        </header>
+        {this.state.monsters.map(() => {
+          return <h1></h1>
+        })}
       </div>
     );
   }
