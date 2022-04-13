@@ -7,7 +7,24 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      monsters: [{ name: "Goof", }, { name: "Goty", }, { name: "Gio", }],
+      monsters: [
+        {
+          name: "Goof",
+          id: 1,
+        },
+        {
+          name: "Goty",
+          id: 2,
+        },
+        {
+          name: "Gio",
+          id: 3,
+        },
+        {
+          name: "Gorg",
+          id: 4,
+        },
+      ],
     };
   }
 
@@ -15,7 +32,11 @@ class App extends Component {
     return (
       <div className="App">
         {this.state.monsters.map((monster) => {
-          return <h1>{ monster.name }</h1>
+          return (
+            <div key={monster.id}>
+              <h1>{monster.name}</h1>
+            </div>
+          );
         })}
       </div>
     );
