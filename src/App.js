@@ -7,25 +7,22 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      monsters: [
-        {
-          name: "Goof",
-          id: 1,
-        },
-        {
-          name: "Goty",
-          id: 2,
-        },
-        {
-          name: "Gio",
-          id: 3,
-        },
-        {
-          name: "Gorg",
-          id: 4,
-        },
-      ],
+      monsters: [],
     };
+  }
+
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((users) =>
+        this.setState(
+          () => {
+          return { monsters: users };
+          },
+          () => {
+          console.log(this.state)
+        })
+      );
   }
 
   render() {
@@ -42,7 +39,6 @@ class App extends Component {
     );
   }
 }
-
 export default App;
 
 // -----------------------------------------------------> Functional component see below
