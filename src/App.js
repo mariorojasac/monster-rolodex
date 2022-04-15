@@ -17,12 +17,14 @@ class App extends Component {
       .then((users) =>
         this.setState(
           () => {
-          return { monsters: users };
+            return { monsters: users };
           },
           () => {
-          console.log(this.state)
-        })
-      );
+            console.log(this.state);
+          }
+        )
+      )
+      .catch((error) => console.log('i will output errors by using promises'));
   }
 
   render() {
